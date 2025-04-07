@@ -1,0 +1,1275 @@
+{
+  "remark": "This file is only used for quick deployment.",
+  "languages": [
+    {
+      "label": "简体中文",
+      "value": "zh_cn"
+    }
+  ],
+  "packages": [
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.2.5",
+      "title": "Minecraft 1.2.5",
+      "remark": "原版 1.2.5",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.2.5/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.2.5-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.3.1",
+      "title": "Minecraft 1.3.1",
+      "remark": "原版 1.3.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.3.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.3.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.3.2",
+      "title": "Minecraft 1.3.2",
+      "remark": "原版 1.3.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.3.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.3.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.4.2",
+      "title": "Minecraft 1.4.2",
+      "remark": "原版 1.4.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.4.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.4.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.4.4",
+      "title": "Minecraft 1.4.4",
+      "remark": "原版 1.4.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.4.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.4.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.4.5",
+      "title": "Minecraft 1.4.5",
+      "remark": "原版 1.4.5",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.4.5/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.4.5-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.4.6",
+      "title": "Minecraft 1.4.6",
+      "remark": "原版 1.4.6",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.4.6/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.4.6-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.4.7",
+      "title": "Minecraft 1.4.7",
+      "remark": "原版 1.4.7",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.4.7/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.4.7-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.5.1",
+      "title": "Minecraft 1.5.1",
+      "remark": "原版 1.5.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.5.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.5.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.5.2",
+      "title": "Minecraft 1.5.2",
+      "remark": "原版 1.5.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.5.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.5.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.6.1",
+      "title": "Minecraft 1.6.1",
+      "remark": "原版 1.6.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.6.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.6.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.6.2",
+      "title": "Minecraft 1.6.2",
+      "remark": "原版 1.6.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.6.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.6.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.6.4",
+      "title": "Minecraft 1.6.4",
+      "remark": "原版 1.6.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.6.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.6.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.2",
+      "title": "Minecraft 1.7.2",
+      "remark": "原版 1.7.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.3",
+      "title": "Minecraft 1.7.3",
+      "remark": "原版 1.7.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.4",
+      "title": "Minecraft 1.7.4",
+      "remark": "原版 1.7.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.5",
+      "title": "Minecraft 1.7.5",
+      "remark": "原版 1.7.5",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.5/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.5-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.6",
+      "title": "Minecraft 1.7.6",
+      "remark": "原版 1.7.6",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.6/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.6-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.7",
+      "title": "Minecraft 1.7.7",
+      "remark": "原版 1.7.7",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.7/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.7-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.8",
+      "title": "Minecraft 1.7.8",
+      "remark": "原版 1.7.8",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.8/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.8-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.9",
+      "title": "Minecraft 1.7.9",
+      "remark": "原版 1.7.9",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.9/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.9-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.7.10",
+      "title": "Minecraft 1.7.10",
+      "remark": "原版 1.7.10",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.7.10/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.7.10-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8",
+      "title": "Minecraft 1.8",
+      "remark": "原版 1.8",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.1",
+      "title": "Minecraft 1.8.1",
+      "remark": "原版 1.8.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.2",
+      "title": "Minecraft 1.8.2",
+      "remark": "原版 1.8.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.3",
+      "title": "Minecraft 1.8.3",
+      "remark": "原版 1.8.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.4",
+      "title": "Minecraft 1.8.4",
+      "remark": "原版 1.8.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.5",
+      "title": "Minecraft 1.8.5",
+      "remark": "原版 1.8.5",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.5/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.5-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.6",
+      "title": "Minecraft 1.8.6",
+      "remark": "原版 1.8.6",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.6/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.6-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.7",
+      "title": "Minecraft 1.8.7",
+      "remark": "原版 1.8.7",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.7/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.7-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.8",
+      "title": "Minecraft 1.8.8",
+      "remark": "原版 1.8.8",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.8/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.8-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.8.9",
+      "title": "Minecraft 1.8.9",
+      "remark": "原版 1.8.9",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.8.9/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.8.9-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.9",
+      "title": "Minecraft 1.9",
+      "remark": "原版 1.9",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.9/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.9-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.9.1",
+      "title": "Minecraft 1.9.1",
+      "remark": "原版 1.9.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.9.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.9.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.9.2",
+      "title": "Minecraft 1.9.2",
+      "remark": "原版 1.9.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.9.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.9.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.9.3",
+      "title": "Minecraft 1.9.3",
+      "remark": "原版 1.9.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.9.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.9.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.9.4",
+      "title": "Minecraft 1.9.4",
+      "remark": "原版 1.9.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.9.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.9.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.10",
+      "title": "Minecraft 1.10",
+      "remark": "原版 1.10",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.10/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.10-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.10.1",
+      "title": "Minecraft 1.10.1",
+      "remark": "原版 1.10.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.10.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.10.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.10.2",
+      "title": "Minecraft 1.10.2",
+      "remark": "原版 1.10.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.10.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.10.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.11",
+      "title": "Minecraft 1.11",
+      "remark": "原版 1.11",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.11/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.11-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.11.1",
+      "title": "Minecraft 1.11.1",
+      "remark": "原版 1.11.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.11.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.11.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.11.2",
+      "title": "Minecraft 1.11.2",
+      "remark": "原版 1.11.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.11.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.11.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.12",
+      "title": "Minecraft 1.12",
+      "remark": "原版 1.12",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.12/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.12-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.12.1",
+      "title": "Minecraft 1.12.1",
+      "remark": "原版 1.12.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.12.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.12.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.12.2",
+      "title": "Minecraft 1.12.2",
+      "remark": "原版 1.12.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.12.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.12.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.13",
+      "title": "Minecraft 1.13",
+      "remark": "原版 1.13",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.13/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.13-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.13.1",
+      "title": "Minecraft 1.13.1",
+      "remark": "原版 1.13.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.13.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.13.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.13.2",
+      "title": "Minecraft 1.13.2",
+      "remark": "原版 1.13.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.13.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.13.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.14",
+      "title": "Minecraft 1.14",
+      "remark": "原版 1.14",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.14/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.14-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.14.1",
+      "title": "Minecraft 1.14.1",
+      "remark": "原版 1.14.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.14.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.14.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.14.2",
+      "title": "Minecraft 1.14.2",
+      "remark": "原版 1.14.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.14.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.14.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.14.3",
+      "title": "Minecraft 1.14.3",
+      "remark": "原版 1.14.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.14.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.14.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.14.4",
+      "title": "Minecraft 1.14.4",
+      "remark": "原版 1.14.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.14.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.14.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.15",
+      "title": "Minecraft 1.15",
+      "remark": "原版 1.15",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.15/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.15-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.15.1",
+      "title": "Minecraft 1.15.1",
+      "remark": "原版 1.15.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.15.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.15.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.15.2",
+      "title": "Minecraft 1.15.2",
+      "remark": "原版 1.15.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.15.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.15.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.16.1",
+      "title": "Minecraft 1.16.1",
+      "remark": "原版 1.16.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.16.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.16.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.16.2",
+      "title": "Minecraft 1.16.2",
+      "remark": "原版 1.16.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.16.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.16.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.16.3",
+      "title": "Minecraft 1.16.3",
+      "remark": "原版 1.16.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.16.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.16.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.16.4",
+      "title": "Minecraft 1.16.4",
+      "remark": "原版 1.16.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.16.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.16.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.16.5",
+      "title": "Minecraft 1.16.5",
+      "remark": "原版 1.16.5",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.16.5/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.16.5-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.17",
+      "title": "Minecraft 1.17",
+      "remark": "原版 1.17",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.17/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.17-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.17.1",
+      "title": "Minecraft 1.17.1",
+      "remark": "原版 1.17.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.17.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.17.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.18",
+      "title": "Minecraft 1.18",
+      "remark": "原版 1.18",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.18/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.18-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.18.1",
+      "title": "Minecraft 1.18.1",
+      "remark": "原版 1.18.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.18.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.18.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.18.2",
+      "title": "Minecraft 1.18.2",
+      "remark": "原版 1.18.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.18.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.18.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.19",
+      "title": "Minecraft 1.19",
+      "remark": "原版 1.19",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.19/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.19-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.19.1",
+      "title": "Minecraft 1.19.1",
+      "remark": "原版 1.19.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.19.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.19.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.19.2",
+      "title": "Minecraft 1.19.2",
+      "remark": "原版 1.19.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.19.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.19.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.19.3",
+      "title": "Minecraft 1.19.3",
+      "remark": "原版 1.19.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.19.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.19.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.19.4",
+      "title": "Minecraft 1.19.4",
+      "remark": "原版 1.19.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.19.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.19.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.20.1",
+      "title": "Minecraft 1.20.1",
+      "remark": "原版 1.20.1",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.20.1/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.20.1-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.20.2",
+      "title": "Minecraft 1.20.2",
+      "remark": "原版 1.20.2",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.20.2/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.20.2-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.20.3",
+      "title": "Minecraft 1.20.3",
+      "remark": "原版 1.20.3",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.20.3/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.20.3-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.20.4",
+      "title": "Minecraft 1.20.4",
+      "remark": "原版 1.20.4",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.20.4/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.20.4-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.20.5",
+      "title": "Minecraft 1.20.5",
+      "remark": "原版 1.20.5",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.20.5/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.20.5-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.20.6",
+      "title": "Minecraft 1.20.6",
+      "remark": "原版 1.20.6",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.20.6/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.20.6-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    },
+    {
+      "language": "zh_cn",
+      "description": "[vanilla] Minecraft 1.21",
+      "title": "Minecraft 1.21",
+      "remark": "原版 1.21",
+      "targetLink": "https://tlcdn-sync.mcsl.com.cn/core/vanilla/1.21/latest/download",
+      "author": "UCKET",
+      "setupInfo": {
+        "type": "minecraft/java",
+        "startCommand": "java -Xms4096M -Xmx4096M -jar vanilla-1.21-Latest.jar nogui",
+        "stopCommand": "stop",
+        "updateCommand": "",
+        "ie": "utf-8",
+        "oe": "utf-8"
+      }
+    }
+  ]
+}
