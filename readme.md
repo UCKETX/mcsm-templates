@@ -17,8 +17,14 @@ MCSManager-Minecraft服务端快速配置模板
 #### 配置方法：
 
 1. 打开并登录你的 MCSM 面板
+
 2. 进入设置
-3. 在 基本设置 - 实例模板配置 中填写  `https://raw.githubusercontent.com/UCKETX/mcsm-templates/refs/heads/main/server.json`
+
+3. 在 基本设置 - 实例模板配置 中填写 
+
+   ```
+   https://raw.githubusercontent.com/UCKETX/mcsm-templates/refs/heads/main/server.json
+   ```
 
 #### 使用方法：
 
@@ -37,9 +43,17 @@ MCSManager-Minecraft服务端快速配置模板
 
 #### 其他模板：
 
-官方模板：`https://script.mcsmanager.com/templates.json`
+官方模板：
 
-本模板的 `bgithub.xyz` 加速：`https://raw.bgithub.xyz/UCKETX/mcsm-templates/refs/heads/main/server.json`
+```
+https://script.mcsmanager.com/templates.json
+```
+
+本模板的 `bgithub.xyz` 加速：
+
+```
+https://raw.bgithub.xyz/UCKETX/mcsm-templates/refs/heads/main/server.json
+```
 
 ## 鸣谢
 
