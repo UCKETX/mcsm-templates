@@ -8,8 +8,6 @@ from src.handler import (
     bungeecord_runner,
     pufferfish_runner,
     mohistmc_runner,
-    getbukkit_runner,
-    purpurmc_runner,
     fabric_runner,
     forge_runner,
     nukkitx_runner,
@@ -35,7 +33,6 @@ MohistMC
 ├─Banner
 └─Mohist
 SpigotMC
-├─Spigot
 └─BungeeCord
 LeavesMC
 └─Leaves
@@ -53,8 +50,7 @@ PaperMC
 ├─Velocity
 └─Waterfall
 PurpurMC
-├─Purpur
-└─Purformance
+└─Purpur
 LuminolMC
 ├─Luminol
 └─LightingLuminol
@@ -66,7 +62,6 @@ Thermos
 Contigo
 Akarin
 CatServer
-Craftbukkit
 Vanilla
 Fabric
 Forge"""
@@ -85,9 +80,7 @@ async def update_default():
         asyncio.create_task(sponge_powered_runner()),
         asyncio.create_task(papermc_runner()),
         asyncio.create_task(pufferfish_runner()),
-        asyncio.create_task(getbukkit_runner()),
         asyncio.create_task(leavesmc_runner()),
-        asyncio.create_task(purpurmc_runner()),
         asyncio.create_task(mohistmc_runner()),
         asyncio.create_task(contigo_runner()),
         asyncio.create_task(luminol_runner()),
