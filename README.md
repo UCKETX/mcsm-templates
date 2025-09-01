@@ -23,7 +23,7 @@ MCSManager-Minecraft服务端快速配置模板
 3. 在 基本设置 - 实例模板配置 中填写 
 
    ```
-   https://raw.githubusercontent.com/UCKETX/mcsm-templates/releases/latest/download/server.json
+  https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json
    ```
 
 #### 使用方法：
