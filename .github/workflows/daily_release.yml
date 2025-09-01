@@ -238,7 +238,7 @@ jobs:
                 f.write("\n".join(release_notes))
             
             print("发布说明已生成")
-            EOF
+          EOF
             
             # 运行Python脚本
             python3 analyze_changes.py
