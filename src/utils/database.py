@@ -1,5 +1,6 @@
 import sqlite3
 from .logger import SyncLogger
+from .minecraft import sort_versions_descending
 
 available_downloads = [
     "Arclight",
@@ -50,7 +51,12 @@ async def get_mc_versions(database_type: str, core_type: str) -> list[str]:
         cursor.execute(
             "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
         )
-        version_list = sorted([row[0] for row in cursor.fetchall()], reverse=True)
+        version_list = [row[0] for row in cursor.fetchall()]
+        try:
+            version_list = sort_versions_descending(version_list)
+        except Exception:
+            # 如果版本排序失败，使用字符串降序排序作为备选
+            version_list = sorted(version_list, reverse=True)
         return version_list
 
 
@@ -60,7 +66,12 @@ async def get_core_versions(
     with sqlite3.connect(f"data/{database_type}/{core_type}.db") as core:
         cursor = core.cursor()
         cursor.execute(f"SELECT core_version FROM '{mc_version}' ORDER BY core_version")
-        version_list = sorted([row[0] for row in cursor.fetchall()], reverse=True)
+        version_list = [row[0] for row in cursor.fetchall()]
+        try:
+            version_list = sort_versions_descending(version_list)
+        except Exception:
+            # 如果版本排序失败，使用字符串降序排序作为备选
+            version_list = sorted(version_list, reverse=True)
         return version_list
 
 
