@@ -53,20 +53,20 @@ jobs:
           # 检查文件变化
           CHANGES_DETECTED=false
           
-          # 备份当前文件用于比较
-          if [ -f "server.json" ]; then
-            cp server.json server_previous.json
-          fi
-          
           # 检查server.json是否有变化
           if [ -f "server_previous.json" ] && [ -f "server.json" ]; then
             if ! cmp -s server_previous.json server.json; then
               CHANGES_DETECTED=true
               echo "检测到server.json文件变化"
+            else
+              echo "server.json文件无变化"
             fi
-          elif [ -f "server.json" ]; then
+          elif [ -f "server.json" ] && [ ! -f "server_previous.json" ]; then
             CHANGES_DETECTED=true
-            echo "检测到新的server.json文件"
+            echo "检测到新的server.json文件（首次运行）"
+          elif [ ! -f "server.json" ]; then
+            echo "错误：未找到server.json文件"
+            exit 1
           fi
           
           # 生成详细的变更说明
