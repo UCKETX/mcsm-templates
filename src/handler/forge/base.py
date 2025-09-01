@@ -1,4 +1,5 @@
 from ...utils import get_json, update_database
+from ...utils.minecraft import sort_versions_descending
 from asyncio import create_task
 
 class ForgeLoader:
@@ -8,9 +9,11 @@ class ForgeLoader:
         self.tmp_info: dict[str, str] = {}
 
     async def load_self(self):
-        self.mc_version_list = await get_json(
+        mc_versions = await get_json(
             "https://bmclapi2.bangbang93.com/forge/minecraft"
         )
+        # 按版本号降序排序
+        self.mc_version_list = sort_versions_descending(mc_versions)
         tasks = [
             create_task(self.fetch_single_mc_version(mc_version=mc_version))
             for mc_version in self.mc_version_list
@@ -30,7 +33,10 @@ class ForgeLoader:
         )
         self.total_info[mc_version] = []
         self.tmp_info[mc_version] = [await create_task(self.serialize_single_build(build)) for build in tmp_info]
-        self.total_info[mc_version] = [build for build in self.tmp_info[mc_version] if build is not None]
+        builds = [build for build in self.tmp_info[mc_version] if build is not None]
+        # 按构建版本降序排序（根据 core_version 字段）
+        builds.sort(key=lambda x: x.get('core_version', ''), reverse=True)
+        self.total_info[mc_version] = builds
         del tmp_info
 
     async def serialize_single_build(self, single_info: dict):
