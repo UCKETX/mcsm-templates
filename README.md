@@ -62,10 +62,10 @@ MCSManager-Minecraft服务端快速配置模板
 https://script.mcsmanager.com/market.json
 ```
 
-本模板的 `bgithub.xyz` 加速：
+使用加速节点：
 
 ```
-https://raw.bgithub.xyz/UCKETX/mcsm-templates/releases/latest/download/server.json
+https://gh.llkk.cc/https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json
 ```
 
 ## 功能特点
