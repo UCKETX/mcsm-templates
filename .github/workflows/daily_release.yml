@@ -34,9 +34,14 @@ jobs:
 
       - name: Backup Previous Server Data
         run: |
-          # 备份现有的server.json文件
-          if [ -f "server.json" ]; then
-            cp server.json server_previous.json
+          # 从GitHub Releases下载旧的server.json文件进行对比
+          echo "正在下载旧的server.json文件..."
+          if curl -L -f -s -o server_previous.json "https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json"; then
+            echo "成功下载旧的server.json文件"
+          else
+            echo "无法下载旧的server.json文件（可能是首次运行或网络问题）"
+            # 如果下载失败，创建一个空文件以避免后续步骤出错
+            touch server_previous.json
           fi
 
       - name: Initialize and Update Database
@@ -78,17 +83,21 @@ jobs:
           CHANGES_DETECTED=false
           
           # 检查server.json是否有变化
-          if [ -f "server_previous.json" ] && [ -f "server.json" ]; then
-            if ! cmp -s server_previous.json server.json; then
-              CHANGES_DETECTED=true
-              echo "检测到server.json文件变化"
+          if [ -f "server.json" ]; then
+            if [ -s "server_previous.json" ]; then
+              # server_previous.json存在且不为空，进行比较
+              if ! cmp -s server_previous.json server.json; then
+                CHANGES_DETECTED=true
+                echo "检测到server.json文件变化"
+              else
+                echo "server.json文件无变化"
+              fi
             else
-              echo "server.json文件无变化"
+              # server_previous.json不存在或为空（首次运行或下载失败）
+              CHANGES_DETECTED=true
+              echo "检测到新的server.json文件（首次运行或无法获取旧版本）"
             fi
-          elif [ -f "server.json" ] && [ ! -f "server_previous.json" ]; then
-            CHANGES_DETECTED=true
-            echo "检测到新的server.json文件（首次运行）"
-          elif [ ! -f "server.json" ]; then
+          else
             echo "错误：未找到server.json文件"
             exit 1
           fi

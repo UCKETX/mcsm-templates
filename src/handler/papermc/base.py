@@ -1,4 +1,5 @@
 from ...utils import get_json, SyncLogger, update_database
+from ...utils.minecraft import sort_versions_descending
 from traceback import format_exception
 from asyncio import create_task
 
@@ -225,7 +226,14 @@ class BuildsManager(object):
             SyncLogger.error("".join(format_exception(e)))
 
     async def gather_builds(self) -> list:
-        return [await build.gather_single_build() for build in self.builds]
+        builds_data = [await build.gather_single_build() for build in self.builds]
+        # 按构建版本号降序排序
+        try:
+            builds_data.sort(key=lambda x: int(x['core_version'].replace('build', '')), reverse=True)
+        except (ValueError, KeyError):
+            # 如果排序失败，保持原顺序
+            pass
+        return builds_data
 
 
 PaperLoader = _ProjectList

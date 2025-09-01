@@ -1,5 +1,6 @@
 from datetime import datetime
 from ...utils import SyncLogger, get_json, update_database
+from ...utils.minecraft import sort_versions_descending
 
 
 class VanillaLoader:
@@ -17,16 +18,24 @@ class VanillaLoader:
                 return
             
             versions = {}
+            release_versions = []
             
-            # 处理所有release版本
+            # 收集所有release版本
             for version_info in manifest_data.get('versions', []):
                 if version_info.get('type') == 'release':
-                    version_id = version_info.get('id')
-                    release_time = version_info.get('releaseTime')
-                    version_url = version_info.get('url')
-                    
-                    if not all([version_id, release_time, version_url]):
-                        continue
+                    release_versions.append(version_info)
+            
+            # 按版本号降序排序
+            release_versions.sort(key=lambda x: x.get('id', ''), reverse=True)
+            
+            # 处理排序后的版本
+            for version_info in release_versions:
+                version_id = version_info.get('id')
+                release_time = version_info.get('releaseTime')
+                version_url = version_info.get('url')
+                
+                if not all([version_id, release_time, version_url]):
+                    continue
                     
                     # 获取具体版本的详细信息
                     version_data = await get_json(version_url)

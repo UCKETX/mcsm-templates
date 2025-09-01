@@ -2,6 +2,7 @@
 
 from asyncio import create_task
 from ...utils.network import get_json
+from ...utils.minecraft import sort_versions_descending
 
 
 class FabricParser:
@@ -27,14 +28,16 @@ class FabricParser:
         (We will ignore unstable versions)
         """
         data = await get_json(f"{self.end_point}/game")  # type: list[dict[str, str|bool]]
-        self.game_version_list.extend(
-            version["version"] for version in data if version.get("stable")
-        )
+        versions = [version["version"] for version in data if version.get("stable")]
+        # 按版本号降序排序
+        self.game_version_list.extend(sort_versions_descending(versions))
 
     async def load_fabric_loader_list(self) -> list:
         """Get Fabric Loader version list."""
         data = await get_json(f"{self.end_point}/loader")  # type: list[dict[str, str|bool]]
-        self.fabric_loader_list.extend(version["version"] for version in data)
+        versions = [version["version"] for version in data]
+        # 按版本号降序排序
+        self.fabric_loader_list.extend(sort_versions_descending(versions))
 
     async def get_latest_installer_version(self) -> None:
         """Get latest installer version."""
@@ -49,16 +52,19 @@ class FabricParser:
 
     async def serialize_single_version_info(self, v: str):
         self.total_info[v] = []
-        for loader_version in reversed(self.fabric_loader_list):
-            if int(loader_version.split(".")[1]) >=12:
-                self.total_info[v].append(
-                    {
-                        "sync_time": "1970-01-01T00:00:00Z",
-                        "download_url": f"https://meta.fabricmc.net/v2/versions/loader/{v}/{loader_version}/{self.installer_version}/server/jar",
-                        "core_type": "Fabric",
-                        "mc_version": v,
-                        "core_version": loader_version,
-                    }
-                )
-            else:
+        # fabric_loader_list 已经按降序排序，直接使用
+        for loader_version in self.fabric_loader_list:
+            try:
+                if int(loader_version.split(".")[1]) >= 12:
+                    self.total_info[v].append(
+                        {
+                            "sync_time": "1970-01-01T00:00:00Z",
+                            "download_url": f"https://meta.fabricmc.net/v2/versions/loader/{v}/{loader_version}/{self.installer_version}/server/jar",
+                            "core_type": "Fabric",
+                            "mc_version": v,
+                            "core_version": loader_version,
+                        }
+                    )
+            except (ValueError, IndexError):
+                # 如果版本号格式不正确，跳过
                 continue
