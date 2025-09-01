@@ -39,13 +39,37 @@ jobs:
             cp server.json server_previous.json
           fi
 
-      - name: Update Database and Generate Server Data
+      - name: Initialize and Update Database
         run: |
-          echo "开始更新数据库..."
+          echo "开始初始化和更新数据库..."
           python main.py -i
           python main.py -u
+          echo "数据库更新完成"
+
+      - name: Start API Server
+        run: |
+          echo "启动 API 服务器..."
+          python main.py --server &
+          SERVER_PID=$!
+          echo "API_SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
+          echo "等待 API 服务器启动..."
+          sleep 10
+          echo "API 服务器已启动 (PID: $SERVER_PID)"
+
+      - name: Generate Server Data
+        run: |
           echo "生成服务器数据..."
           python generate_market.py
+          echo "服务器数据生成完成"
+
+      - name: Stop API Server
+        if: always()
+        run: |
+          if [ ! -z "$API_SERVER_PID" ]; then
+            echo "停止 API 服务器 (PID: $API_SERVER_PID)..."
+            kill $API_SERVER_PID || true
+            echo "API 服务器已停止"
+          fi
 
       - name: Check for Changes and Generate Release Notes
         id: changes
