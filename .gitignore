@@ -1,0 +1,14 @@
+**__pycache__**
+build/
+downloads/
+.env
+.venv/
+venv/
+.idea/
+.vscode/
+1.py
+tmp.py
+logs/**
+data/*
+deps/*
+.ruff_cache/**
