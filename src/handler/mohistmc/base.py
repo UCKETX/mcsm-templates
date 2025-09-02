@@ -160,23 +160,33 @@ class SingleBuild(object):
         self.name = name
         self.version: str = version
         
-        # Handle missing 'number' field
+        # Handle missing 'number' field with default value
         if "number" not in build_info:
-            raise ValueError(f"Missing 'number' field in build_info: {build_info}")
+            SyncLogger.warning(f"{name} | {version} | Missing 'number' field in build_info, using default value 0")
+            build_number = 0
+        else:
+            build_number = build_info["number"]
         
-        # Handle missing 'createdAt' field
+        # Handle missing 'createdAt' field with current timestamp
         if "createdAt" not in build_info:
-            raise ValueError(f"Missing 'createdAt' field in build_info: {build_info}")
+            SyncLogger.warning(f"{name} | {version} | Missing 'createdAt' field in build_info, using current time")
+            from time import time
+            created_at = int(time() * 1000)  # Current timestamp in milliseconds
+        else:
+            created_at = build_info["createdAt"]
             
-        # Handle missing 'url' field
+        # Handle missing 'url' field with empty string
         if "url" not in build_info:
-            raise ValueError(f"Missing 'url' field in build_info: {build_info}")
+            SyncLogger.warning(f"{name} | {version} | Missing 'url' field in build_info, using empty string")
+            url = ""
+        else:
+            url = build_info["url"]
         
-        self.build: int = "build" + str(build_info["number"])
-        self.time: int = strftime(
-            "%Y-%m-%d %H:%M:%S", localtime(int(build_info["createdAt"]) / 1000)
+        self.build: str = "build" + str(build_number)
+        self.time: str = strftime(
+            "%Y-%m-%d %H:%M:%S", localtime(int(created_at) / 1000)
         )
-        self.url: str = build_info["url"]
+        self.url: str = url
 
     async def gather_single_build(self) -> dict[str, str]:
         return {
