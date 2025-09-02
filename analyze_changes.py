@@ -24,13 +24,20 @@ def analyze_changes(old_file, new_file):
     new_data = load_json_file(new_file)
     
     # 统计信息
+    # 统计 packages 中唯一的 category 值数量
+    unique_categories = set()
+    for package in new_data.get('packages', []):
+        category = package.get('category', '')
+        if category:
+            unique_categories.add(category)
+    
     stats = {
         'new_versions': 0,
         'updated_versions': 0,
         'removed_versions': 0,
         'new_cores': 0,
         'total_packages': len(new_data.get('packages', [])),
-        'total_languages': len(new_data.get('languages', []))
+        'total_languages': len(unique_categories)
     }
     
     # 创建旧数据的索引
