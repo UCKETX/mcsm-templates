@@ -36,7 +36,7 @@ def analyze_changes(old_file, new_file):
     # 创建旧数据的索引
     old_packages = {}
     for package in old_data.get('packages', []):
-        key = f"{package.get('language', '')}-{package.get('title', '')}"
+        key = f"{package.get('category', '')}-{package.get('title', '')}"
         old_packages[key] = package
     
     # 分析新数据
@@ -44,12 +44,12 @@ def analyze_changes(old_file, new_file):
     updated_versions = []
     
     for package in new_data.get('packages', []):
-        key = f"{package.get('language', '')}-{package.get('title', '')}"
+        key = f"{package.get('category', '')}-{package.get('title', '')}"
         
         if key not in old_packages:
             # 新版本
             new_versions.append({
-                'core': package.get('language', ''),
+                'core': package.get('category', ''),
                 'version': package.get('title', ''),
                 'description': package.get('description', '')
             })
@@ -60,7 +60,7 @@ def analyze_changes(old_file, new_file):
             if (package.get('targetLink') != old_pkg.get('targetLink') or 
                 package.get('description') != old_pkg.get('description')):
                 updated_versions.append({
-                    'core': package.get('language', ''),
+                    'core': package.get('category', ''),
                     'version': package.get('title', ''),
                     'description': package.get('description', '')
                 })
@@ -70,12 +70,12 @@ def analyze_changes(old_file, new_file):
     removed_versions = []
     for key, package in old_packages.items():
         new_key_exists = any(
-            f"{pkg.get('language', '')}-{pkg.get('title', '')}" == key 
+            f"{pkg.get('category', '')}-{pkg.get('title', '')}" == key 
             for pkg in new_data.get('packages', [])
         )
         if not new_key_exists:
             removed_versions.append({
-                'core': package.get('language', ''),
+                'core': package.get('category', ''),
                 'version': package.get('title', ''),
                 'description': package.get('description', '')
             })

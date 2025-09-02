@@ -33,7 +33,7 @@ class GitHubReleaseSerializer(object):
         for release in self.release_list:
             for asset in release["assets"]:
                 release["download_url"] = (
-                    "https://gh.lxhtt.cn/" + asset["browser_download_url"]
+                    "https://raw.bgithub.xyz/" + asset["browser_download_url"]
                 )
             release.pop("assets")
 
