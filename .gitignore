@@ -13,3 +13,4 @@ data/*
 deps/*
 .ruff_cache/**
 server.json
+market.json

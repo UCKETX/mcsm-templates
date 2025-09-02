@@ -79,13 +79,13 @@ class MarketGenerator:
             
             # 生成包数据，严格按照原始market.json格式
             package = {
-                "language": core_type.lower(),  # 使用核心名作为语言标识
+                "language": "zh_cn",  # 统一使用中文语言标识
                 "platform": "ALL",
                 "description": f"{core_type} {mc_version} 服务端 - 构建版本 {core_version}，自动下载最新版本",
                 "image": "https://mcsmanager.oss-cn-guangzhou.aliyuncs.com/package-images/minecraft.webp",
                 "gameType": game_type,
                 "title": f"{core_type} {mc_version}",
-                "category": category,
+                "category": core_type,  # 显示服务端类型名称
                 "runtime": runtime,
                 "hardware": "RAM 4G+",
                 "size": "自动下载",
@@ -175,13 +175,12 @@ class MarketGenerator:
         """生成完整的市场数据"""
         print("Starting market data generation...")
         
-        # 生成languages字段 - 每个核心作为一种语言
-        for core_type in available_downloads:
-            self.market_data["languages"].append({
-                "label": core_type,
-                "value": core_type.lower(),
-                "path": f"templates-{core_type.lower()}.json"
-            })
+        # 生成languages字段 - 统一的中文配置
+        self.market_data["languages"].append({
+            "label": "中文",
+            "value": "zh_cn",
+            "path": "templates-zh.json"
+        })
         
         # 获取所有核心的包数据
         async with aiohttp.ClientSession() as session:
