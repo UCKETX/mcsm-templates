@@ -36,39 +36,39 @@ class VanillaLoader:
                 
                 if not all([version_id, release_time, version_url]):
                     continue
-                    
-                    # 获取具体版本的详细信息
-                    version_data = await get_json(version_url)
-                    if not version_data:
-                        SyncLogger.warning(f"{self.core_type} | Failed to fetch version data for {version_id}")
-                        continue
-                    
-                    # 获取服务端下载链接
-                    downloads = version_data.get('downloads', {})
-                    server_info = downloads.get('server')
-                    
-                    if not server_info or not server_info.get('url'):
-                        SyncLogger.warning(f"{self.core_type} | No server download found for version {version_id}")
-                        continue
-                    
-                    # 转换时间格式
-                    try:
-                        sync_time = datetime.fromisoformat(release_time.replace('Z', '+00:00')).isoformat() + 'Z'
-                    except Exception as e:
-                        SyncLogger.warning(f"{self.core_type} | Failed to parse release time for {version_id}: {e}")
-                        sync_time = datetime.now().isoformat() + 'Z'
-                    
-                    versions[version_id] = [{
-                        "sync_time": sync_time,
-                        "download_url": server_info.get('url'),
-                        "core_type": self.core_type,
-                        "mc_version": version_id,
-                        "core_version": "Official",
-                        "sha1": server_info.get('sha1', ''),
-                        "size": server_info.get('size', 0)
-                    }]
-                    
-                    SyncLogger.info(f"{self.core_type} | Loaded version {version_id}")
+                
+                # 获取具体版本的详细信息
+                version_data = await get_json(version_url)
+                if not version_data:
+                    SyncLogger.warning(f"{self.core_type} | Failed to fetch version data for {version_id}")
+                    continue
+                
+                # 获取服务端下载链接
+                downloads = version_data.get('downloads', {})
+                server_info = downloads.get('server')
+                
+                if not server_info or not server_info.get('url'):
+                    SyncLogger.warning(f"{self.core_type} | No server download found for version {version_id}")
+                    continue
+                
+                # 转换时间格式
+                try:
+                    sync_time = datetime.fromisoformat(release_time.replace('Z', '+00:00')).isoformat() + 'Z'
+                except Exception as e:
+                    SyncLogger.warning(f"{self.core_type} | Failed to parse release time for {version_id}: {e}")
+                    sync_time = datetime.now().isoformat() + 'Z'
+                
+                versions[version_id] = [{
+                    "sync_time": sync_time,
+                    "download_url": server_info.get('url'),
+                    "core_type": self.core_type,
+                    "mc_version": version_id,
+                    "core_version": "Official",
+                    "sha1": server_info.get('sha1', ''),
+                    "size": server_info.get('size', 0)
+                }]
+                
+                SyncLogger.info(f"{self.core_type} | Loaded version {version_id}")
             
             # 保存数据到数据库
             await self.save_data(versions)

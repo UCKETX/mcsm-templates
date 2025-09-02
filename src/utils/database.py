@@ -108,23 +108,47 @@ def update_database(
             )
         except sqlite3.OperationalError:
             pass
-        try:
+        
+        # 统计更新和插入的数量
+        updated_count = 0
+        inserted_count = 0
+        
+        # 增量更新逻辑：检查每个构建是否已存在
+        for build in builds:
+            # 检查是否已存在相同的记录（基于 download_url 和 core_version）
             cursor.execute(
                 f"""
-                DELETE FROM "{mc_version}"
-                """
+                SELECT COUNT(*) FROM "{mc_version}" 
+                WHERE download_url = ? AND core_version = ?
+                """,
+                (build['download_url'], build['core_version'])
             )
-        except sqlite3.OperationalError:
-            pass
-        for core_type in available_downloads:
-            for build in builds:
+            exists = cursor.fetchone()[0] > 0
+            
+            if exists:
+                # 更新现有记录的 sync_time
+                cursor.execute(
+                    f"""
+                    UPDATE "{mc_version}" 
+                    SET sync_time = ?
+                    WHERE download_url = ? AND core_version = ?
+                    """,
+                    (build['sync_time'], build['download_url'], build['core_version'])
+                )
+                updated_count += 1
+            else:
+                # 插入新记录
                 cursor.execute(
                     f"""
                     INSERT INTO "{mc_version}" (sync_time, download_url, core_type, mc_version, core_version)
-                    VALUES (:sync_time, :download_url, :core_type, :mc_version, :core_version)
+                    VALUES (?, ?, ?, ?, ?)
                     """,
-                    build,
+                    (build['sync_time'], build['download_url'], build['core_type'], 
+                     build['mc_version'], build['core_version'])
                 )
+                inserted_count += 1
+        
+        # 去重逻辑（保留现有逻辑）
         cursor.execute(
             f"""
             DELETE FROM "{mc_version}"
@@ -135,10 +159,16 @@ def update_database(
             )
             """
         )
+        
+        # 检查表是否为空，如果为空则删除表
         cursor.execute(f"SELECT COUNT(*) FROM '{mc_version}'")
         count = cursor.fetchone()[0]
         if count == 0:
             cursor.execute(f"DROP TABLE '{mc_version}'")
+            SyncLogger.info(f"{core_type} | {mc_version} | Table dropped (empty)")
+        else:
+            SyncLogger.info(f"{core_type} | {mc_version} | Updated: {updated_count}, Inserted: {inserted_count}, Total: {count}")
+        
         database.commit()
 
 
