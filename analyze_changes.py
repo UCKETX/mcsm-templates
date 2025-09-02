@@ -24,20 +24,13 @@ def analyze_changes(old_file, new_file):
     new_data = load_json_file(new_file)
     
     # 统计信息
-    # 统计 packages 中唯一的 category 值数量
-    unique_categories = set()
-    for package in new_data.get('packages', []):
-        category = package.get('category', '')
-        if category:
-            unique_categories.add(category)
-    
     stats = {
         'new_versions': 0,
         'updated_versions': 0,
         'removed_versions': 0,
         'new_cores': 0,
         'total_packages': len(new_data.get('packages', [])),
-        'total_languages': len(unique_categories)
+        'total_languages': 0  # 将在后面计算
     }
     
     # 创建旧数据的索引
@@ -89,10 +82,26 @@ def analyze_changes(old_file, new_file):
             stats['removed_versions'] += 1
     
     # 检查新增的核心类型
-    old_languages = {lang.get('value', '') for lang in old_data.get('languages', [])}
-    new_languages = {lang.get('value', '') for lang in new_data.get('languages', [])}
-    new_cores_list = list(new_languages - old_languages)
+    # 统计旧数据中 packages 的唯一 category 值
+    old_categories = set()
+    for package in old_data.get('packages', []):
+        category = package.get('category', '')
+        if category:
+            old_categories.add(category)
+    
+    # 统计新数据中 packages 的唯一 category 值
+    new_categories = set()
+    for package in new_data.get('packages', []):
+        category = package.get('category', '')
+        if category:
+            new_categories.add(category)
+    
+    # 计算新增的核心类型
+    new_cores_list = list(new_categories - old_categories)
     stats['new_cores'] = len(new_cores_list)
+    
+    # 更新支持核心总数
+    stats['total_languages'] = len(new_categories)
     
     # 生成发布说明
     release_notes = generate_release_notes(stats, new_versions, updated_versions, removed_versions, new_cores_list)
