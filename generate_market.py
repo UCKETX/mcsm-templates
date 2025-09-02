@@ -79,13 +79,13 @@ class MarketGenerator:
             
             # 生成包数据，严格按照原始market.json格式
             package = {
-                "language": core_type.lower(),  # 使用核心名作为语言标识
+                "language": "zh_cn",  # 统一使用中文语言标识
                 "platform": "ALL",
                 "description": f"{core_type} {mc_version} 服务端 - 构建版本 {core_version}，自动下载最新版本",
                 "image": "https://mcsmanager.oss-cn-guangzhou.aliyuncs.com/package-images/minecraft.webp",
                 "gameType": game_type,
                 "title": f"{core_type} {mc_version}",
-                "category": category,
+                "category": core_type,  # 显示服务端类型名称
                 "runtime": runtime,
                 "hardware": "RAM 4G+",
                 "size": "自动下载",
@@ -101,36 +101,33 @@ class MarketGenerator:
             return None
     
     def get_core_category(self, core_type):
-        """根据核心类型获取分类信息 - 所有服务端都归类到 mc-banner"""
-        # 根据核心类型确定运行时要求
-        runtime_requirements = {
-            'Paper': 'Java 21+',
-            'Purpur': 'Java 21+',
-            'Spigot': 'Java 17+',
-            'Fabric': 'Java 17+',
-            'Forge': 'Java 17+',
-            'Folia': 'Java 21+',
-            'Velocity': 'Java 17+',
-            'Waterfall': 'Java 17+',
-            'BungeeCord': 'Java 17+',
-            'Mohist': 'Java 17+',
-            'CatServer': 'Java 17+',
-            'Arclight': 'Java 17+',
-            'Banner': 'Java 17+',
-            'Leaves': 'Java 21+',
-            'Pufferfish': 'Java 17+',
-            'SpongeVanilla': 'Java 17+',
-            'SpongeForge': 'Java 17+',
-            'Vanilla': 'Java 17+',
-            'Craftbukkit': 'Java 17+',
-            'NukkitX': 'Java 17+',
-            'Geyser': 'Java 17+',
-            'Floodgate': 'Java 17+',
+        """根据核心类型获取分类信息"""
+        categories = {
+            'Paper': ('mc-paper', 'Java 21+', 'Minecraft'),
+            'Purpur': ('mc-purpur', 'Java 21+', 'Minecraft'),
+            'Spigot': ('mc-spigot', 'Java 17+', 'Minecraft'),
+            'Fabric': ('mc-fabric', 'Java 17+', 'Minecraft'),
+            'Forge': ('mc-forge', 'Java 17+', 'Minecraft'),
+            'Folia': ('mc-folia', 'Java 21+', 'Minecraft'),
+            'Velocity': ('mc-proxy', 'Java 17+', 'Minecraft'),
+            'Waterfall': ('mc-proxy', 'Java 17+', 'Minecraft'),
+            'BungeeCord': ('mc-proxy', 'Java 17+', 'Minecraft'),
+            'Mohist': ('mc-mohist', 'Java 17+', 'Minecraft'),
+            'CatServer': ('mc-catserver', 'Java 17+', 'Minecraft'),
+            'Arclight': ('mc-arclight', 'Java 17+', 'Minecraft'),
+            'Banner': ('mc-banner', 'Java 17+', 'Minecraft'),
+            'Leaves': ('mc-leaves', 'Java 21+', 'Minecraft'),
+            'Pufferfish': ('mc-pufferfish', 'Java 17+', 'Minecraft'),
+            'SpongeVanilla': ('mc-sponge', 'Java 17+', 'Minecraft'),
+            'SpongeForge': ('mc-sponge', 'Java 17+', 'Minecraft'),
+            'Vanilla': ('mc-vanilla', 'Java 17+', 'Minecraft'),
+            'Craftbukkit': ('mc-craftbukkit', 'Java 17+', 'Minecraft'),
+            'NukkitX': ('mc-nukkit', 'Java 17+', 'Minecraft'),
+            'Geyser': ('mc-geyser', 'Java 17+', 'Minecraft'),
+            'Floodgate': ('mc-floodgate', 'Java 17+', 'Minecraft'),
         }
         
-        runtime = runtime_requirements.get(core_type, 'Java 17+')
-        # 所有服务端版本选择都归类到 mc-banner
-        return ('mc-banner', runtime, 'Minecraft')
+        return categories.get(core_type, ('mc-other', 'Java 17+', 'Minecraft'))
     
     def get_setup_info(self, core_type, mc_version, core_version, build_info=None):
         """生成启动配置信息，按照MCSM格式"""
@@ -174,45 +171,16 @@ class MarketGenerator:
         
         return setup_info
     
-    def get_core_chinese_name(self, core_type):
-        """获取核心类型的中文名称"""
-        chinese_names = {
-            'Paper': 'Paper 服务端',
-            'Purpur': 'Purpur 服务端',
-            'Spigot': 'Spigot 服务端',
-            'Fabric': 'Fabric 服务端',
-            'Forge': 'Forge 服务端',
-            'Folia': 'Folia 服务端',
-            'Velocity': 'Velocity 代理',
-            'Waterfall': 'Waterfall 代理',
-            'BungeeCord': 'BungeeCord 代理',
-            'Mohist': 'Mohist 服务端',
-            'CatServer': 'CatServer 服务端',
-            'Arclight': 'Arclight 服务端',
-            'Banner': 'Banner 服务端',
-            'Leaves': 'Leaves 服务端',
-            'Pufferfish': 'Pufferfish 服务端',
-            'SpongeVanilla': 'SpongeVanilla 服务端',
-            'SpongeForge': 'SpongeForge 服务端',
-            'Vanilla': 'Vanilla 原版服务端',
-            'Craftbukkit': 'CraftBukkit 服务端',
-            'NukkitX': 'NukkitX 基岩版服务端',
-            'Geyser': 'Geyser 互通代理',
-            'Floodgate': 'Floodgate 互通插件',
-        }
-        return chinese_names.get(core_type, f'{core_type} 服务端')
-    
     async def generate_market_data(self):
         """生成完整的市场数据"""
         print("Starting market data generation...")
         
-        # 生成languages字段 - 每个核心作为一种语言，使用中文标签
-        for core_type in available_downloads:
-            self.market_data["languages"].append({
-                "label": self.get_core_chinese_name(core_type),
-                "value": core_type.lower(),
-                "path": f"templates-{core_type.lower()}.json"
-            })
+        # 生成languages字段 - 统一的中文配置
+        self.market_data["languages"].append({
+            "label": "中文",
+            "value": "zh_cn",
+            "path": "templates-zh.json"
+        })
         
         # 获取所有核心的包数据
         async with aiohttp.ClientSession() as session:
