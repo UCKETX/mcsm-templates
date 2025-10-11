@@ -7,15 +7,28 @@ class CatServerReleaseSerializer(GitHubReleaseSerializer):
 
     async def get_assets(self) -> None:
         await self.get_release_data()
+        # 当无法获取到 Release 数据时（网络错误或无发布），直接返回并记录告警
+        if not self.release_list:
+            SyncLogger.warning("CatServer | No release data found.")
+            return
+
         for release in self.release_list:
-            release["core_type"] = "CatServer"
-            release["mc_version"] = release["target_commitish"]
-            release["core_version"] = release["tag_name"]
-            release.pop("tag_name")
-            release.pop("name")
-            release.pop("target_commitish")
+            try:
+                release["core_type"] = "CatServer"
+                release["mc_version"] = release["target_commitish"]
+                release["core_version"] = release["tag_name"]
+                release.pop("tag_name")
+                release.pop("name")
+                release.pop("target_commitish")
+            except (KeyError, ValueError) as e:
+                SyncLogger.warning(
+                    f"CatServer | Failed to normalize release {release.get('tag_name', 'unknown')}: {e}"
+                )
 
         catserver_res = await self.sort_by_mc_versions()
-        for mc_version, builds in catserver_res.items():
-            update_database("runtime", "CatServer", mc_version, builds=builds)
-        SyncLogger.success("CatServer | All versions were loaded.")
+        if catserver_res:
+            for mc_version, builds in catserver_res.items():
+                update_database("runtime", "CatServer", mc_version, builds=builds)
+            SyncLogger.success("CatServer | All versions were loaded.")
+        else:
+            SyncLogger.warning("CatServer | No versions found or API response is empty.")
