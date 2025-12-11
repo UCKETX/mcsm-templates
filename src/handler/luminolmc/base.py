@@ -10,9 +10,9 @@ class LuminolReleaseSerializer(GitHubReleaseSerializer):
         idx: int = len(self.release_list)
         for release in self.release_list:
             release["core_type"] = "Luminol"
-            release["mc_version"], release["core_version"] = tuple(
-                release["tag_name"].split("-")
-            )
+            # Tag names sometimes contain multiple hyphens; only the first part is the MC version.
+            mc_part, _, _ = release["tag_name"].partition("-")
+            release["mc_version"] = mc_part
             release["core_version"] = f"build{idx}"
             release.pop("tag_name")
             release.pop("target_commitish")
@@ -37,9 +37,9 @@ class LightingLuminolReleaseSerializer(GitHubReleaseSerializer):
         idx: int = len(self.release_list)
         for release in self.release_list:
             release["core_type"] = "LightingLuminol"
-            release["mc_version"], release["core_version"] = tuple(
-                release["tag_name"].split("-")
-            )
+            # Tag names sometimes contain multiple hyphens; only the first part is the MC version.
+            mc_part, _, _ = release["tag_name"].partition("-")
+            release["mc_version"] = mc_part
             release["core_version"] = f"build{idx}"
             release.pop("tag_name")
             release.pop("target_commitish")
