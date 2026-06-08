@@ -45,6 +45,8 @@ jobs:
           fi
 
       - name: Initialize and Update Database
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "开始初始化和更新数据库..."
           python main.py -i

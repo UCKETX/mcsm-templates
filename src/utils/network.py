@@ -2,6 +2,22 @@ from aiohttp import ClientSession
 from .logger import __version__
 from .logger import SyncLogger
 from orjson import loads
+from os import getenv
+
+USER_AGENT = (
+    f"MCSLSync/{__version__} Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+)
+
+
+def build_headers(link: str) -> dict[str, str]:
+    headers = {"User-Agent": USER_AGENT}
+    github_token = getenv("GITHUB_TOKEN")
+    if github_token and link.startswith("https://api.github.com/"):
+        headers["Authorization"] = f"Bearer {github_token}"
+        headers["X-GitHub-Api-Version"] = "2022-11-28"
+    return headers
+
 
 @SyncLogger.catch
 async def get_proxy() -> str | None:
@@ -21,9 +37,7 @@ async def get_json(link: str) -> dict | list | None:
     trust_env = bool(isinstance(await get_proxy(), str))
     async with ClientSession(
         trust_env=trust_env,
-        headers={
-            "User-Agent": f"MCSLSync/{__version__} Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        },
+        headers=build_headers(link),
     ) as session:
         async with session.get(link) as response:
             return loads(await response.text())
@@ -34,9 +48,7 @@ async def get_text(link: str) -> str | None:
     trust_env = bool(isinstance(await get_proxy(), str))
     async with ClientSession(
         trust_env=trust_env,
-        headers={
-            "User-Agent": f"MCSLSync/{__version__} Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        },
+        headers=build_headers(link),
     ) as session:
         async with session.get(link) as response:
             try:
@@ -61,9 +73,7 @@ async def get_text(link: str) -> str | None:
 async def check_file_exists(uri: str):
     async with ClientSession(
         trust_env=not bool(isinstance(await get_proxy(), str)),
-        headers={
-            "User-Agent": f"MCSLSync/{__version__} Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        },
+        headers=build_headers(uri),
     ) as session:
         async with session.head(
             uri, allow_redirects=True, max_redirects=10
