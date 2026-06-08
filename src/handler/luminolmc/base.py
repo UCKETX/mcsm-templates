@@ -23,9 +23,12 @@ class LuminolReleaseSerializer(GitHubReleaseSerializer):
 
         luminol_res = await self.sort_by_mc_versions()
 
-        for mc_version, builds in luminol_res.items():
-            update_database("runtime", "Luminol", mc_version, builds=builds)
-        SyncLogger.success("Luminol | All versions were loaded.")
+        if luminol_res:
+            for mc_version, builds in luminol_res.items():
+                update_database("runtime", "Luminol", mc_version, builds=builds)
+            SyncLogger.success("Luminol | All versions were loaded.")
+        else:
+            SyncLogger.warning("Luminol | No versions found or API response is empty.")
 
 
 class LightingLuminolReleaseSerializer(GitHubReleaseSerializer):
@@ -49,6 +52,11 @@ class LightingLuminolReleaseSerializer(GitHubReleaseSerializer):
             idx -= 1
 
         lighting_luminol_res = await self.sort_by_mc_versions()
-        for mc_version, builds in lighting_luminol_res.items():
-            update_database("runtime", "LightingLuminol", mc_version, builds=builds)
-        SyncLogger.success("LightingLuminol | All versions were loaded.")
+        if lighting_luminol_res:
+            for mc_version, builds in lighting_luminol_res.items():
+                update_database("runtime", "LightingLuminol", mc_version, builds=builds)
+            SyncLogger.success("LightingLuminol | All versions were loaded.")
+        else:
+            SyncLogger.warning(
+                "LightingLuminol | No versions found or API response is empty."
+            )

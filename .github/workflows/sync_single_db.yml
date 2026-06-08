@@ -24,6 +24,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
@@ -56,6 +58,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
@@ -88,6 +92,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
@@ -120,6 +126,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
@@ -152,6 +160,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
@@ -184,6 +194,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
@@ -216,6 +228,8 @@ jobs:
 
       - name: Sync Database
         shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
