@@ -3,6 +3,8 @@ from traceback import format_exception
 from asyncio import create_task
 from time import localtime, strftime
 
+MAX_RETRIES = 3
+
 
 class _ProjectList(object):
     def __init__(self) -> None:
@@ -16,10 +18,17 @@ class _ProjectList(object):
         self.project_id_list = await get_json("https://mohistmc.com/api/v2/projects/")  # noqa: E501
         if self.project_id_list is None:
             SyncLogger.error("MohistMC | Project list load failed!")
-            return self.load_self(retry=(retry+1))
+            if retry < MAX_RETRIES:
+                await self.load_self(retry=(retry+1))
+            else:
+                self.project_id_list = []
+            return
         # fmt: on
 
     async def load_all_projects(self) -> None:
+        if not self.project_id_list:
+            SyncLogger.warning("MohistMC | No projects loaded, skipped.")
+            return
         tasks = [
             create_task(self.load_single_project(project_id=project["project"]))
             for project in self.project_id_list
@@ -63,7 +72,7 @@ class Project(object):
             )
         )  # type: dict
 
-        self.version_label_list = tmp_data.get("versions", None)
+        self.version_label_list = tmp_data.get("versions", None) if isinstance(tmp_data, dict) else None
 
         if self.version_label_list is None:
             SyncLogger.error(
@@ -71,7 +80,9 @@ class Project(object):
                     project_id=self.project_id.capitalize()
                 )
             )
-            return self.load_self(retry=(retry + 1))
+            if retry < MAX_RETRIES:
+                await self.load_self(retry=(retry + 1))
+            return
         await self.load_version_list()
 
     async def load_version_list(self) -> None:
@@ -124,7 +135,7 @@ class SingleVersion(object):
                 project_id=self.project_id, version=self.version
             )
         )
-        self.builds_list: list = tmp_data.get("builds", None)
+        self.builds_list: list = tmp_data.get("builds", None) if isinstance(tmp_data, dict) else None
 
         if self.builds_list is None:
             SyncLogger.error(
@@ -132,7 +143,9 @@ class SingleVersion(object):
                     project_id=self.project_id.capitalize(), version=self.version
                 )
             )
-            return self.load_self(retry=(retry + 1))
+            if retry < MAX_RETRIES:
+                await self.load_self(retry=(retry + 1))
+            return
         await self.load_builds()
 
     async def load_builds(self) -> None:

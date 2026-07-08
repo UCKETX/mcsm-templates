@@ -22,6 +22,9 @@ class NukkitXCISerializer(JenkinsCISerializer):
         tmp_data = await self.load_single_job(job_name="master")
         from time import strftime, localtime
         self.job_data["general"] = []
+        if not tmp_data:
+            SyncLogger.warning("NukkitX | No Jenkins builds loaded, skipped.")
+            return []
         for single_data in tmp_data:
             if not len(single_data):
                 continue

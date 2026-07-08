@@ -3,6 +3,8 @@ from ...utils.minecraft import sort_versions_descending
 from traceback import format_exception
 from asyncio import create_task
 
+MAX_RETRIES = 3
+
 
 class _ProjectList(object):
     def __init__(self) -> None:
@@ -13,13 +15,21 @@ class _ProjectList(object):
         # fmt: off
         if retry:
             SyncLogger.warning("PaperMC | Retrying getting project list...")
-        self.project_id_list = (await get_json("https://api.papermc.io/v2/projects/")).get("projects", None)  # noqa: E501
+        tmp_data = await get_json("https://api.papermc.io/v2/projects/")
+        self.project_id_list = tmp_data.get("projects", None) if isinstance(tmp_data, dict) else None  # noqa: E501
         if self.project_id_list is None:
             SyncLogger.error("PaperMC | Project list load failed!")
-            return self.load_self(retry=(retry+1))
+            if retry < MAX_RETRIES:
+                await self.load_self(retry=(retry+1))
+            else:
+                self.project_id_list = []
+            return
         # fmt: on
 
     async def load_all_projects(self) -> None:
+        if not self.project_id_list:
+            SyncLogger.warning("PaperMC | No projects loaded, skipped.")
+            return
         tasks = [
             create_task(self.load_single_project(project_id=project_id))
             for project_id in self.project_id_list
@@ -63,6 +73,8 @@ class Project(object):
             )
         )  # type: dict
 
+        if not isinstance(tmp_data, dict):
+            tmp_data = {}
         self.project_name = tmp_data.get("project_name", None)
         self.version_label_list = tmp_data.get("versions", None)
 
@@ -72,7 +84,9 @@ class Project(object):
                     project_id=self.project_id.capitalize()
                 )
             )
-            return self.load_self(retry=(retry + 1))
+            if retry < MAX_RETRIES:
+                await self.load_self(retry=(retry + 1))
+            return
         await self.load_version_list()
 
     async def load_version_list(self) -> None:
@@ -93,6 +107,9 @@ class Project(object):
         )
         try:
             await sv.load_self()
+            if sv.builds_manager is None:
+                return
+            self.versions.append(sv)
         except Exception as e:
             SyncLogger.warning(
                 "{project_name} | {version} | Failed to load version list!".format(
@@ -100,7 +117,6 @@ class Project(object):
                 )
             )
             SyncLogger.error("".join(format_exception(e)))
-        self.versions.append(sv)
 
     async def gather_project(self) -> dict:
         return {
@@ -126,7 +142,7 @@ class SingleVersion(object):
                 project_id=self.project_id, version=self.version
             )
         )
-        self.builds_number: list = tmp_data.get("builds", None)
+        self.builds_number: list = tmp_data.get("builds", None) if isinstance(tmp_data, dict) else None
 
         if self.builds_number is None:
             SyncLogger.error(
@@ -134,7 +150,9 @@ class SingleVersion(object):
                     project_id=self.project_id.capitalize(), version=self.version
                 )
             )
-            return self.load_self(retry=(retry + 1))
+            if retry < MAX_RETRIES:
+                await self.load_self(retry=(retry + 1))
+            return
 
         self.builds_manager = BuildsManager(
             project_name=self.project_name,
@@ -144,9 +162,13 @@ class SingleVersion(object):
         await self.load_builds()
 
     async def load_builds(self) -> None:
+        if self.builds_manager is None:
+            return
         await create_task(self.builds_manager.load_self())
 
     async def gather_version(self) -> list:
+        if self.builds_manager is None:
+            return []
         return await self.builds_manager.gather_builds()
 
 
@@ -214,7 +236,7 @@ class BuildsManager(object):
                 SingleBuild(
                     name=self.project_name, version=self.version, build_info=build_info
                 )
-                for build_info in tmp_data.get("builds", None)
+                for build_info in (tmp_data.get("builds", []) if isinstance(tmp_data, dict) else [])
             ]
         except Exception as e:
             SyncLogger.warning(
