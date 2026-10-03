@@ -31,6 +31,11 @@ class ForgeLoader:
         tmp_info = await get_json(
             f"https://bmclapi2.bangbang93.com/forge/minecraft/{mc_version}"
         )
+
+        if tmp_info is None or not tmp_info:
+            self.total_info[mc_version] = []
+            return
+
         self.total_info[mc_version] = []
         self.tmp_info[mc_version] = [await create_task(self.serialize_single_build(build)) for build in tmp_info]
         builds = [build for build in self.tmp_info[mc_version] if build is not None]
