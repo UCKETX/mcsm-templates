@@ -10,6 +10,10 @@ permissions:
   contents: write
   actions: read
 
+concurrency:
+  group: daily-market-release
+  cancel-in-progress: false
+
 jobs:
   update-and-release:
     runs-on: ubuntu-latest
@@ -34,15 +38,9 @@ jobs:
 
       - name: Backup Previous Server Data
         run: |
-          # 从GitHub Releases下载旧的server.json文件进行对比
-          echo "正在下载旧的server.json文件..."
-          if curl -L -f -s -o server_previous.json "https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json"; then
-            echo "成功下载旧的server.json文件"
-          else
-            echo "无法下载旧的server.json文件（可能是首次运行或网络问题）"
-            # 如果下载失败，创建一个空文件以避免后续步骤出错
-            touch server_previous.json
-          fi
+          curl --fail --silent --show-error --location --retry 3 --max-time 60 \
+            --output server_previous.json \
+            "https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json"
 
       - name: Initialize and Update Database
         env:
@@ -81,29 +79,13 @@ jobs:
       - name: Check for Changes and Generate Release Notes
         id: changes
         run: |
-          # 检查文件变化
+          python preserve_pufferfish.py server_previous.json server.json
+
           CHANGES_DETECTED=false
-          
-          # 检查server.json是否有变化
-          if [ -f "server.json" ]; then
-            if [ -s "server_previous.json" ]; then
-              # server_previous.json存在且不为空，进行比较
-              if ! cmp -s server_previous.json server.json; then
-                CHANGES_DETECTED=true
-                echo "检测到server.json文件变化"
-              else
-                echo "server.json文件无变化"
-              fi
-            else
-              # server_previous.json不存在或为空（首次运行或下载失败）
-              CHANGES_DETECTED=true
-              echo "检测到新的server.json文件（首次运行或无法获取旧版本）"
-            fi
-          else
-            echo "错误：未找到server.json文件"
-            exit 1
+          if ! cmp -s server_previous.json server.json; then
+            CHANGES_DETECTED=true
           fi
-          
+
           # 生成详细的变更说明
           if [ "$CHANGES_DETECTED" = "true" ]; then
             echo "正在分析变更内容..."
