@@ -41,18 +41,22 @@ class PufferfishCISerializer(JenkinsCISerializer):
         del tasks
 
     @SyncLogger.catch
-    async def load_single_version(self, job: dict) -> list[dict[str, str]]:
+    async def load_single_version(self, job: dict) -> None:
         job_name = job["url"].replace(self.end_point, "").replace("/job/", "")[:-1]
         tmp_data = await self.load_single_job(job_name=job_name)
         from time import strftime, localtime
 
-        self.job_data[job["name"]] = {}
+        if not tmp_data:
+            SyncLogger.warning(f"Pufferfish | No successful builds returned for {job_name}")
+            return
+
+        job_versions: dict[str, list[dict[str, str]]] = {}
         for single_data in tmp_data:
             if not len(single_data):
                 continue
             else:
                 for artifact in single_data["artifacts"]:
-                    self.job_data[job["name"]][
+                    job_versions[
                         str(
                             artifact["fileName"]
                             .replace("paperclip-", "")
@@ -65,7 +69,7 @@ class PufferfishCISerializer(JenkinsCISerializer):
                 continue
             else:
                 for artifact in single_data["artifacts"]:
-                    self.job_data[job["name"]][
+                    job_versions[
                         str(
                             artifact["fileName"]
                             .replace("paperclip-", "")
@@ -97,4 +101,7 @@ class PufferfishCISerializer(JenkinsCISerializer):
                             "core_version": str("build" + str(single_data["number"])),
                         }
                     )
-        del strftime, localtime
+        if job_versions:
+            core_versions = self.job_data.setdefault(job["name"], {})
+            for mc_version, builds in job_versions.items():
+                core_versions.setdefault(mc_version, []).extend(builds)
