@@ -1,113 +1,65 @@
 # MCSM-Templates
 
-MCSManager-Minecraft服务端快速配置模板
+为 [MCSManager](https://mcsmanager.com/) 提供 Minecraft 服务端模板源。接入后，可以在面板的应用市场按核心和 Minecraft 版本选择模板，例如 Paper、Fabric、Forge、Purpur 和 Pufferfish。实际可用版本以最新发布的 `server.json` 为准。
 
-## 简介
+[最新发布](https://github.com/UCKETX/mcsm-templates/releases/latest) · [历史发布](https://github.com/UCKETX/mcsm-templates/releases) · [问题反馈](https://github.com/UCKETX/mcsm-templates/issues)
 
-- **名字**：MCSM-Templates
-- **作者**：[UCKETX](https://github.com/UCKETX)
-- **内容概括**：MCSM-MC服务端快速配置模板
-- **协议**：MIT
-- **最后更新**：2025.8.5
-- **关于AI**：人工收集，如有错误请联系作者。
-- **版权**：侵权必删
+## 接入 MCSManager
 
-## 使用方法
+1. 登录面板，打开 **设置 → 基本设置 → 实例模板配置**。
+2. 填入以下地址并保存。
 
-#### 配置方法：
-
-1. 打开并登录你的 MCSM 面板
-
-2. 进入设置
-
-3. 在 基本设置 - 实例模板配置 中填写 
-
-   ```
-     https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json
+   ```text
+   https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json
    ```
 
-#### 使用方法：
+3. 打开 **应用市场**，选择所需的核心和版本，按模板提示创建实例。
+4. 启动前确认运行实例的节点已安装该核心要求的 Java 版本，并检查启动命令中的 JAR 文件名和内存参数。首次启动若提示接受 Minecraft EULA，请阅读条款并按提示处理。
 
-1. 点击 `应用市场`
+### 常见问题
 
-2. 选择适合的服务器版本和类型
+| 现象 | 排查方法 |
+| --- | --- |
+| 应用市场无法加载 | 在运行面板的主机上执行 `curl -fL -o server.json https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json`，确认能下载模板索引。 |
+| 能看到模板，但服务端下载失败 | 检查下载日志和对应模板的 `targetLink`，确认执行下载的主机能访问上游构建地址。 |
+| 服务端启动报错 | 核对实例实际使用的 Java 版本、JAR 文件名和可用内存。Java 要求以对应核心和 Minecraft 版本的文档为准。 |
 
-3. 下载对应的服务器文件
+需要切回面板官方模板时，可使用 [MCSManager 官方模板源](https://script.mcsmanager.com/market.json)。面板操作可参考 [MCSManager 官方文档](https://docs.mcsmanager.com/)。
 
-4. 确保已安装符合要求的 JDK 版本
+## 数据更新
 
-5. 使用提供的启动命令运行服务器：
+GitHub Actions 每天北京时间 **08:00** 计划执行采集，也支持手动运行。流程从各核心上游获取构建数据，写入本地 SQLite，再导出 `server.json`。生成结果有变化时，流程会发布新的附件和变更说明。 [查看发布流程](.github/workflows/daily_release.yml)
 
-   ```
-   # 示例启动命令
-   java -Xms4096M -Xmx4096M -jar server.jar nogui
-   ```
+如果某次采集临时漏掉 Pufferfish 条目，发布流程会补回上一版已有的条目。同一版本采到新构建时，以新构建为准。上一版附件下载失败或无法解析时，当次发布会中止。 [查看保留逻辑](preserve_pufferfish.py)
 
-##### 小贴士：
+## 本地生成
 
-如果出现：
+以下命令适用于 Linux 和 macOS，使用 Python 3.12，与发布流程一致。
 
-```
-网络故障中
-很抱歉，无法获取最新预设整合包列表，可能是您的网络问题或服务器正在维护中。
-```
-
-点击 `知道了` 即可。
-
-#### 其他模板：
-
-官方模板：
-
-```
-https://script.mcsmanager.com/market.json
+```bash
+git clone https://github.com/UCKETX/mcsm-templates.git
+cd mcsm-templates
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python main.py -i
+.venv/bin/python main.py -u
+.venv/bin/python main.py --server
 ```
 
-使用加速节点：
+API 启动后，保持该终端运行，在另一个终端进入仓库目录并执行以下命令。生成文件位于仓库根目录。
 
+```bash
+.venv/bin/python generate_market.py
 ```
-https://gh.llkk.cc/https://github.com/UCKETX/mcsm-templates/releases/latest/download/server.json
-```
 
-## 功能特点
+运行回归测试可使用 `.venv/bin/python -m unittest discover -s tests`。
 
-- 支持超多种 Minecraft 版本（1.2.5 - 1.21.8）！！！
-- 提供超多种服务器核心选择（Paper、Forge等）
-- 包含预配置的整合包服务端（不过网络问题好像不能用）
+## 反馈与贡献
 
-## 使用要求
+反馈模板问题时，请附上核心名称、Minecraft 版本、Release 标签和相关报错。欢迎通过 Issue 或 Pull Request 提交修正。 [提交 Issue](https://github.com/UCKETX/mcsm-templates/issues)
 
-- JDK 版本要求：
-  - 1.21.x 版本：JDK 21+
-  - 1.20.x 版本：JDK 17+
-  - 1.16.x 及更早版本：JDK 8+
-- 内存要求：最低 2GB RAM
-- 建议使用 SSD 存储以获得更好性能
-
-## 注意事项
-
-- 首次启动服务器需要同意 EULA 协议
-- 建议定期备份服务器数据
-- 根据实际硬件配置调整内存分配
-- 确保使用正确版本的 JDK
-
-## 技术支持
-
-如果遇到问题或需要帮助，可以：
-
-- 如果你在使用过程中遇到本项目的问题或 Bug，可以前往 [项目的 Issues 页面](https://github.com/UCKETX/mcsm-templates/issues) 提交反馈，我们会 ~~尽快~~ 处理。
-- 查看对应版本的官方文档(https://docs.mcsmanager.com/)
-- 参考社区讨论
-- 提交 Issue 反馈问题
-
-## 贡献
-
-欢迎提交新的服务器配置或改进建议，让我们一起完善这个项目！
-
-## 鸣谢
-
-- [MCSL-Sync-Backend](https://github.com/MCSLTeam/MCSL-Sync-Backend)
-- [mcsm-template-editor](https://github.com/Lirzh/mcsm-template-editor/tree/main)
+感谢 [MCSL-Sync-Backend](https://github.com/MCSLTeam/MCSL-Sync-Backend) 和 [mcsm-template-editor](https://github.com/Lirzh/mcsm-template-editor)。
 
 ## 许可证
 
-本项目遵循 GPL-3.0 协议，详情请参见 LICENSE 文件。
+本仓库采用 [GNU GPL v3](LICENSE)。各服务端核心及其构建适用各自的许可证。
