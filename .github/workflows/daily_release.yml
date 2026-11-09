@@ -36,6 +36,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -U -r requirements.txt
 
+      - name: Run Regression Tests
+        run: python -m unittest discover -s tests
+
       - name: Backup Previous Server Data
         run: |
           curl --fail --silent --show-error --location --retry 3 --max-time 60 \
@@ -80,6 +83,7 @@ jobs:
         id: changes
         run: |
           python preserve_pufferfish.py server_previous.json server.json
+          python validate_mohist_release.py server_previous.json server.json
 
           CHANGES_DETECTED=false
           if ! cmp -s server_previous.json server.json; then
